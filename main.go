@@ -1,0 +1,40 @@
+package main
+
+// every executable package in Go needs to have package called main
+
+// go mod init api_authentication
+import (
+	"encoding/json"
+	"fmt"
+	"net/http"
+)
+
+type LoginRequest struct {
+	Username string `json:"username"`
+	Password string `json:"password"`
+}
+
+func loginHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodPost {
+		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+		return
+	}
+
+	var loginReq LoginRequest
+	if err := json.NewDecoder(r.Body).Decode(&loginReq); err != nil {
+		http.Error(w, "Invalid request data", http.StatusBadRequest)
+		return
+	}
+
+	// Simulate authentication logic
+	if loginReq.Username == "user" && loginReq.Password == "password" {
+		fmt.Fprint(w, "Login successful")
+	} else {
+		fmt.Fprint(w, "Login failed")
+	}
+}
+
+func main() {
+	http.HandleFunc("/login", loginHandler)
+	http.ListenAndServe(":8080", nil)
+}
