@@ -22,47 +22,42 @@
 
 package main
 
-// every executable package in Go needs to have package called main
-
-// go mod init api_authentication.
-// Unused imports are compile time errors
 import (
 	"fmt"
 	"net/http"
 
 	"crunchmasterdeluxe.com/api_authentication/database"
 
-	"github.com/gin-gonic/gin"
+	"github.com/gorilla/mux"
 )
 
 func main() {
+	r := mux.NewRouter()
+	r.HandleFunc("/login", handleLoginPage)
+	r.HandleFunc("/api/login", handleLogin)
 
-	if 1 == 0 {
-		userMessage, success := database.Controller("person6", "secretpassword6", "create")
-		fmt.Println(userMessage, success)
+	http.Handle("/", http.FileServer(http.Dir("templates")))
+	http.Handle("/api/", r)
+	http.ListenAndServe("localhost:8080", nil)
+}
+
+func handleLoginPage(w http.ResponseWriter, r *http.Request) {
+	http.ServeFile(w, r, "templates/index.html")
+}
+
+func handleLogin(w http.ResponseWriter, r *http.Request) {
+	username := r.FormValue("username")
+	password := r.FormValue("password")
+
+	// Perform authentication logic
+	message, isValidUser := database.Controller(username, password, "read")
+	if isValidUser {
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(http.StatusOK)
+		fmt.Fprintf(w, `{"message": "%s"}`, message)
+	} else {
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(http.StatusUnauthorized)
+		fmt.Fprintf(w, `{"message": "%s"}`, message)
 	}
-
-	router := gin.Default()
-
-	// Render the login form -
-	// TODO could not get to work
-	// router.GET("/login-form", func(c *gin.Context) {
-	// 	c.HTML(http.StatusOK, "index.html", gin.H{})
-	// })
-
-	// Handle the login form submission
-	router.POST("/login", func(c *gin.Context) {
-		username := c.PostForm("username")
-		password := c.PostForm("password")
-
-		// Perform authentication logic
-		message, isValidUser := database.Controller(username, password, "read")
-		if isValidUser {
-			c.JSON(http.StatusOK, gin.H{"message": message})
-		} else {
-			c.JSON(http.StatusUnauthorized, gin.H{"message": message})
-		}
-	})
-
-	router.Run("localhost:8080")
 }
