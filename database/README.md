@@ -7,11 +7,11 @@ The database package contains functions for creating and managing user data in t
 
 ## Table of Contents
 
-[Initialization](#initialization)
-[Creating Users](#creating-users)
-[Saving Users](#saving-users)
-[Validating Users](#validating-users)
-[Controller Function](#controller-function)
+- [Initialization](#initialization)
+- [Creating Users](#creating-users)
+- [Saving Users](#saving-users)
+- [Validating Users](#validating-users)
+- [Controller Function](#controller-function)
 
 ## Initialization
 
