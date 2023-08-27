@@ -16,13 +16,15 @@ The database package contains functions for creating and managing user data in t
 ## Initialization
 
 The initDb function initializes an SQLite database and creates the required users table if it doesn't already exist. This function is called when interacting with the database.
-Creating Users
+
+## Creating Users
 
 The createUser function is used to create a new user with the provided username and password. It utilizes the saveUser function to save the user details to the database.
 ## Saving Users
 
 The saveUser function takes a User struct and inserts the user's username and password into the users table in the database. Proper error handling is implemented to ensure successful user data insertion.
-Validating Users
+
+## Validating Users
 
 The isValidUser function is responsible for validating user credentials. It checks if the provided username exists in the database and if the provided password matches the stored password for that user.
 ## Controller Function
