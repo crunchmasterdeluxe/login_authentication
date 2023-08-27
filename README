@@ -1,4 +1,4 @@
-#API Authentication App
+# API Authentication App
 
 This Go application provides API authentication by accepting a form POST request with a username and password, and then authenticating the given credentials against a SQLite database. The application also includes functionality to add new users and their raw passwords to the users table in the database.
 Local Packages
@@ -9,7 +9,7 @@ helpers
 
 The helpers package includes a utility error handling function used throughout the application to ensure proper error reporting and handling.
 
-##Future Iterations
+## Future Iterations
 
   In future iterations of this application, the following enhancements are planned:
 
@@ -19,7 +19,7 @@ The helpers package includes a utility error handling function used throughout t
 
   JWT Token Authorization: Implement authorization using JSON Web Tokens (JWT). JWT tokens will be used for all future requests within the app, improving security and user experience.
 
-##Usage
+## Usage
 
   Compile and Run the App: To run the application, compile the main.go file using go run main.go. This will start the server on localhost:8080.
 
@@ -29,6 +29,6 @@ The helpers package includes a utility error handling function used throughout t
 
   Front-End Form (TODO): There's a TODO comment regarding rendering a login form. This can be implemented in the future to provide a web-based form for logging in.
 
-##Disclaimer
+## Disclaimer
 
   This application is a basic demonstration of API authentication and is not production-ready. It lacks important security features like hashed passwords and proper front-end design. Use it as a learning resource and starting point for further development.
