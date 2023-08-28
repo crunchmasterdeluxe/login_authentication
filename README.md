@@ -17,19 +17,17 @@ In future iterations of this application, the following enhancements are planned
 
 Hashed Passwords: Passwords will be securely hashed before storing them in the database. This will enhance the security of stored user credentials.
 
-Front-End Development: The front-end of the application will be further developed to provide a more user-friendly interface for login and registration.
-
 JWT Token Authorization: Implement authorization using JSON Web Tokens (JWT). JWT tokens will be used for all future requests within the app, improving security and user experience.
 
 ## Usage
 
-Compile and Run the App: To run the application, compile the main.go file using go run main.go. This will start the server on localhost:8080.
+Serve the `./off_grid_solar_home_webgl/index.html` page. Make sure that the iFrame source in `./templates/index.html` matches the local port that the Unity scene is running on.
+
+Compile and Run the App: To run the application, compile the main.go file using `go run main.go`. This will start the server on localhost:8080.
 
 Login Form Submission: Submit a POST request to /login with the username and password fields to authenticate the user. The application will perform the authentication logic and respond with appropriate messages based on the authentication outcome.
 
 Creating Users (Temporary): The code includes a temporary block that demonstrates how to create a new user. This is not part of the main functionality and should be removed or properly integrated in future versions.
-
-Front-End Form (TODO): There's a TODO comment regarding rendering a login form. This can be implemented in the future to provide a web-based form for logging in.
 
 ## Disclaimer
 
