@@ -4,8 +4,8 @@ This Go application provides API authentication by accepting a form POST request
 
 ## Explainer Videos
 For all you visual learners out there, I started a Youtube thing (we haven't DTR'd) where I take you through everything that I learned as I coded this. Feedback is always welcome!
-[First iteration (gin-api branch)](https://youtu.be/h08wQNC0o_o)
-[Second iteration (mux-api + unity branches)](https://youtu.be/03zb3sGO1I0)
+  - [First iteration (gin-api branch)](https://youtu.be/h08wQNC0o_o)
+  - [Second iteration (mux-api + unity branches)](https://youtu.be/03zb3sGO1I0)
 
 ## Local Packages
 ### database
