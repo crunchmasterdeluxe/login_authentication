@@ -20,6 +20,8 @@ The helpers package includes a utility error handling function used throughout t
 
 In future iterations of this application, the following enhancements are planned:
 
+Unity frontend: Rather than including a Unity scene in an iFrame, code all frontend functionality in Unity/C#/javaScript.
+
 Hashed Passwords: Passwords will be securely hashed before storing them in the database. This will enhance the security of stored user credentials.
 
 JWT Token Authorization: Implement authorization using JSON Web Tokens (JWT). JWT tokens will be used for all future requests within the app, improving security and user experience.
