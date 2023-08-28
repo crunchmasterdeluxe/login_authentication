@@ -2,6 +2,11 @@
 
 This Go application provides API authentication by accepting a form POST request with a username and password, and then authenticating the given credentials against a SQLite database. The application also includes functionality to add new users and their raw passwords to the users table in the database.
 
+## Explainer Videos
+For all you visual learners out there, I started a Youtube thing (we haven't DTR'd) where I take you through everything that I learned as I coded this. Feedback is always welcome!
+[First iteration (gin-api branch)](https://youtu.be/h08wQNC0o_o)
+[Second iteration (mux-api + unity branches)](https://youtu.be/03zb3sGO1I0)
+
 ## Local Packages
 ### database
 
